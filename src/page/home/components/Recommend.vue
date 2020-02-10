@@ -1,7 +1,7 @@
 <template>
     <div class="recommend">
       <div class="recommend-title">热销推荐</div>
-      <ul>
+      <ul v-if="showRecommend">
         <li
           class="item border-bottom"
           v-for="item of recommendList"
@@ -20,31 +20,12 @@
 <script>
     export default {
         name: "HomeRecommend",
-        data () {
-          return {
-            recommendList : [
-              {
-                id : '0001',
-                imgUrl : 'https://imgs.qunarzz.com/sight/p0/1801/5d/5d24bb249f8ca889a3.water.jpg_200x200_77551cb9.jpg',
-                title : '澳门水舞间演出'
-                ,desc : '澳门水舞间演出，浪漫的主题演出'
-              }, {
-                id : '0002',
-                imgUrl : 'https://imgs.qunarzz.com/sight/p0/1801/5d/5d24bb249f8ca889a3.water.jpg_200x200_77551cb9.jpg',
-                title : '澳门水舞间演出'
-                ,desc : '澳门水舞间演出，浪漫的主题演出'
-              }, {
-                id : '0003',
-                imgUrl : 'https://imgs.qunarzz.com/sight/p0/1801/5d/5d24bb249f8ca889a3.water.jpg_200x200_77551cb9.jpg',
-                title : '澳门水舞间演出'
-                ,desc : '澳门水舞间演出，浪漫的主题演出'
-              }, {
-                id : '0004',
-                imgUrl : 'https://imgs.qunarzz.com/sight/p0/1801/5d/5d24bb249f8ca889a3.water.jpg_200x200_77551cb9.jpg',
-                title : '澳门水舞间演出'
-                ,desc : '澳门水舞间演出，浪漫的主题演出'
-              },
-            ]
+        props: {
+          recommendList : Array
+        },
+        computed : {
+          showRecommend : function () {
+            return this.recommendList.length
           }
         }
     }

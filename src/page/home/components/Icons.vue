@@ -1,7 +1,7 @@
 <template>
     <div class="icons">
       <swiper>
-        <swiper-slide v-for="(page,index) of pages" :key="index">
+        <swiper-slide :options="swiperOption" v-for="(page,index) of pages" :key="index">
           <div class="icon" v-for="item of page" :key="item.id">
             <div class="icon-img">
               <img class="icon-img-content" :src="item.imgUrl" >
@@ -16,6 +16,16 @@
 <script>
     export default {
         name: "HomeIcons",
+        props : {
+          iconList : Array
+        },
+        data () {
+          return {
+            swiperOption : {
+              autoplay: false
+            }
+          }
+        },
         computed : {
           pages () {
             const pages = [];
@@ -28,49 +38,6 @@
             });
             return pages
           }
-        },
-        data () {
-          return {
-            iconList : [
-              {
-                id : '0001',
-                imgUrl : 'https://imgs.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
-                desc : '景点门票'
-              }, {
-                id : '0002',
-                imgUrl : 'https://imgs.qunarzz.com/piao/fusion/1803/ab/6f7d6e44963c9302.png',
-                desc : '温泉滑雪'
-              }, {
-                id : '0003',
-                imgUrl : 'https://imgs.qunarzz.com/piao/fusion/1804/5a/13ceb38dcf262f02.png',
-                desc : '一日游'
-              },{
-                id : '0004',
-                imgUrl : 'https://imgs.qunarzz.com/piao/fusion/1803/ab/6f7d6e44963c9302.png',
-                desc : '皇帝宫温泉'
-              },{
-                id : '0005',
-                imgUrl : 'https://imgs.qunarzz.com/piao/fusion/1803/95/8246f27355943202.png',
-                desc : '郑州方特'
-              },{
-                id : '0006',
-                imgUrl : 'https://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20194/e98eea7ed037b04a5af0250ca8a1abd7.png',
-                desc : '少林寺'
-              },{
-                id : '0007',
-                imgUrl : 'https://imgs.qunarzz.com/piao/fusion/1803/8c/47630407f70e8302.png',
-                desc : '电影小镇'
-              },{
-                id : '0008',
-                imgUrl : 'https://imgs.qunarzz.com/piao/fusion/1803/fc/b10a6b2e4f0fe102.png',
-                desc : '嵩顶滑雪场'
-              },{
-                id : '0009',
-                imgUrl : 'https://imgs.qunarzz.com/piao/fusion/1803/50/26ffa31b56646402.png',
-                desc : '海洋馆'
-              },
-            ]
-          }
         }
     }
 </script>
@@ -82,34 +49,36 @@
   .icons >>> .swiper-container
     height: 0
     padding-bottom: 50%
-  .icon
-   position: relative
-   overflow: hidden
-   float: left
-   width: 25%
-   height: 0
-   padding-bottom: 25%
-   .icon-img
-     position: absolute
-     left:0
-     right:0
-     top:0
-     bottom: .44rem
-     box-sizing: border-box
-     padding: .1rem
-     .icon-img-content
-       display: block
-       margin: 0 auto
-       height:100%
-   .icon-desc
-     position: absolute
-     left: 0
-     right: 0
-     bottom: 0
-     height: .44rem
-     line-height: .44rem
-     text-align: center
-     color: $darkTextColor
-     ellipsis ()
+  .icons
+    margin-top: .1rem
+    .icon
+     position: relative
+     overflow: hidden
+     float: left
+     width: 25%
+     height: 0
+     padding-bottom: 25%
+     .icon-img
+       position: absolute
+       left:0
+       right:0
+       top:0
+       bottom: .44rem
+       box-sizing: border-box
+       padding: .1rem
+       .icon-img-content
+         display: block
+         margin: 0 auto
+         height:100%
+     .icon-desc
+       position: absolute
+       left: 0
+       right: 0
+       bottom: 0
+       height: .44rem
+       line-height: .44rem
+       text-align: center
+       color: $darkTextColor
+       ellipsis ()
 
 </style>

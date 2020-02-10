@@ -1,10 +1,10 @@
 <template>
   <div class="recommend">
     <div class="recommend-title">周末去哪儿</div>
-    <ul>
+    <ul v-if="showWeekendList">
       <li
         class="border-bottom"
-        v-for="item of recommendList"
+        v-for="item of weekendList"
         :key="item.id">
         <div class="item-img-wrapper">
           <img :src="item.imgUrl" class="item-img">
@@ -21,31 +21,12 @@
 <script>
   export default {
     name: "HomeWeekend",
-    data () {
-      return {
-        recommendList : [
-          {
-            id : '0001',
-            imgUrl : 'https://imgs.qunarzz.com/sight/source/1505/86/57819390ea997c.jpg_r_640x214_00888590.jpg',
-            title : '澳门水舞间演出'
-            ,desc : '澳门水舞间演出，浪漫的主题演出'
-          }, {
-            id : '0002',
-            imgUrl : 'https://imgs.qunarzz.com/sight/source/1505/86/57819390ea997c.jpg_r_640x214_00888590.jpg',
-            title : '澳门水舞间演出'
-            ,desc : '澳门水舞间演出，浪漫的主题演出'
-          }, {
-            id : '0003',
-            imgUrl : 'https://imgs.qunarzz.com/sight/source/1505/86/57819390ea997c.jpg_r_640x214_00888590.jpg',
-            title : '澳门水舞间演出'
-            ,desc : '澳门水舞间演出，浪漫的主题演出'
-          }, {
-            id : '0004',
-            imgUrl : 'https://imgs.qunarzz.com/sight/source/1505/86/57819390ea997c.jpg_r_640x214_00888590.jpg',
-            title : '澳门水舞间演出'
-            ,desc : '澳门水舞间演出，浪漫的主题演出'
-          },
-        ]
+    props: {
+      weekendList : Array
+    },
+    computed : {
+      showWeekendList : function () {
+        return this.weekendList.length;
       }
     }
   }
@@ -54,14 +35,14 @@
 <style scoped lang="stylus">
   @import "~styles/mixins.styl"
   .recommend-title
-    margin-top: .2rem
+    margin-top: .1rem
     line-height: .8rem
     text-indent: .2rem
     background-color: #eee;
   .item-img-wrapper
     overflow: hidden;
     height:0
-    padding-bottom: 33.9%
+    padding-bottom: 37.09%
     .item-img
       width: 100%
   .item-info
