@@ -33,6 +33,7 @@
 
 <style scoped lang="stylus">
   @import "~styles/mixins.styl"
+  @import "~styles/variables.styl"
   .recommend-title
     margin-top: .2rem
     line-height: .8rem
@@ -64,5 +65,5 @@
         background-color: #ff9300;
         padding: 0 .1rem
         border-radius: .06rem
-        color: #fff
+        color: $textDefaultColor
 </style>
