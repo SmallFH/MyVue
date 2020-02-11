@@ -48,7 +48,6 @@
             if (this.letter) {
               const events = this.$refs[this.letter][0];
               this.scroll.scrollToElement(events);
-
             }
           }
         }
