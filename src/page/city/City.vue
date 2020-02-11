@@ -2,8 +2,11 @@
   <div>
     <city-header></city-header>
     <city-search></city-search>
-    <city-list :cities="cities" :hotCities="hotCities"></city-list>
-    <city-alphabet :cities="cities"></city-alphabet>
+    <city-list :cities="cities" :hotCities="hotCities" :letter="letter"></city-list>
+    <city-alphabet
+      :cities="cities"
+      @clickLetter="getClickLetter"
+    ></city-alphabet>
   </div>
 </template>
 
@@ -19,7 +22,8 @@
         data () {
           return {
             cities : {},
-            hotCities : []
+            hotCities : [],
+            letter : ''
           }
         },
         components : {
@@ -42,6 +46,9 @@
               this.cities = data.cities;
               this.hotCities = data.hotCities;
             }
+          },
+          getClickLetter (letter) {
+            this.letter = letter;
           }
         }
     }
